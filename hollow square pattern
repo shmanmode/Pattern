@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class Pattern {
+    public static void main(String[] args) {
+        System.out.println("HCL Pattern\n");
+
+        Scanner in = new Scanner(System.in);
+        int ls = 5;
+        int size = in.nextInt();
+
+//        String str = in.nextLine();
+//        String[] arr1 = str.split("");
+//
+//        System.out.println("123132132");
+//        for(int i = 0; i <= ls; i++)
+//        {
+//            System.out.println(arr1[i]);
+//        }
+        String arr[] = {"a","b","c","d","e"};
+
+
+        print_square(size,arr,ls);
+
+    }
+     static void print_square(int n, String[] arr, int ls)
+
+    {
+
+        int i, j;
+
+        for (i = 0; i < n; i++)
+        {
+            for (j = 0; j < n; j++)
+            {
+                if (i == 0 || i == n-1 || j == 0 || j == n-1){
+                    if(j == 0)
+                   // System.out.print(n-i-1+"\t");
+                    System.out.print(arr[(n-i-1)%ls]+"\t");
+
+
+                    if (i == 0 && j!=0)
+                    //System.out.print(n+j-1+"\t");
+                    System.out.print(arr[(n+j-1)%ls]+"\t");
+
+
+                    if (j != 0 && i !=0 && j == n-1)
+                        //System.out.print(n+j+i-1+"\t");
+                        System.out.print(arr[(n+j+i-1)%ls]+"\t");
+
+
+                    if (j != 0 && i == n-1 && j != n-1)
+                        //System.out.print((n*4)-j-4+"\t");
+                         System.out.print(arr[((n*4)-j-4)%ls]+"\t");
+
+                }
+                else
+                    System.out.print("\t");
+            }
+            System.out.println("");
+        }
+    }
+}
